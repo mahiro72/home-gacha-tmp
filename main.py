@@ -28,7 +28,7 @@ def gacha_start():
 def gacha_status():
     global capsule_toy_queue
     if len(capsule_toy_queue) == 0:
-        raise HTTPException(status_code=404, detail="queueが見つかりません")
+        raise HTTPException(status_code=400, detail="queueが見つかりません")
 
     capsule_toy_queue = []
     return {"status": "waiting"}
