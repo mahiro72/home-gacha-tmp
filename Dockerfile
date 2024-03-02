@@ -2,7 +2,9 @@ FROM python:3.8.16
 
 WORKDIR /api
 
-RUN pip install poetry
+RUN curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH="${PATH}:/root/.poetry/bin"
+
 COPY pyproject.toml poetry.lock* /api/
 
 # --no-rootオプションでプロジェクト自体はインストールしない
